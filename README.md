@@ -3,6 +3,8 @@
 <p align="center"><strong>Secure the path from source code to runtime.</strong></p>
 
 <p align="center">
+<a href="https://github.com/obinna-obika-devops/devsecops-supply-chain-security/actions/workflows/secure-ci.yml"><img src="https://github.com/obinna-obika-devops/devsecops-supply-chain-security/actions/workflows/secure-ci.yml/badge.svg" alt="Secure CI"></a>
+<a href="https://github.com/obinna-obika-devops/devsecops-supply-chain-security/actions/workflows/security.yml"><img src="https://github.com/obinna-obika-devops/devsecops-supply-chain-security/actions/workflows/security.yml/badge.svg" alt="Security Analysis"></a>
 <img src="https://img.shields.io/badge/DevSecOps-Secure%20Delivery-1f6feb" alt="DevSecOps">
 <img src="https://img.shields.io/badge/SBOM-Supply%20Chain-orange" alt="SBOM">
 <img src="https://img.shields.io/badge/Cosign-Keyless%20Signing-blue" alt="Cosign">
@@ -29,6 +31,18 @@ flowchart LR
     J --> K[Kyverno Admission]
     K --> L[Kubernetes Runtime]
 ```
+
+## Security evidence
+
+| Security layer | Inspectable evidence |
+|---|---|
+| CI security gates | [`.github/workflows/secure-ci.yml`](.github/workflows/secure-ci.yml) |
+| Security analysis | [`.github/workflows/security.yml`](.github/workflows/security.yml) |
+| Infrastructure security | [`terraform/`](terraform/) |
+| Application and container build | [`app/`](app/) |
+| Policy-as-code | [`policies/`](policies/) |
+| Kubernetes admission/runtime controls | [`kubernetes/`](kubernetes/) |
+| Supply-chain / release automation | [`.github/workflows/`](.github/workflows/) |
 
 ## Security gates
 
