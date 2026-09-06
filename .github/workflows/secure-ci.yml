@@ -13,6 +13,8 @@ permissions:
 jobs:
   test:
     runs-on: ubuntu-latest
+    env:
+      PYTHONPATH: .
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -48,7 +50,7 @@ jobs:
           context: app
           push: false
           tags: secure-demo:${{ github.sha }}
-      - uses: aquasecurity/trivy-action@master
+      - uses: aquasecurity/trivy-action@v0.36.0
         with:
           image-ref: secure-demo:${{ github.sha }}
           format: table
