@@ -11,6 +11,8 @@
 
 A practical secure software delivery platform demonstrating defense-in-depth controls across source, dependencies, infrastructure, containers, Kubernetes, artifacts, and releases.
 
+> **Reviewing this for a role?** Start with the [5-minute recruiter/interview walkthrough](docs/recruiter-walkthrough.md) for a fast path through the security engineering evidence.
+
 ## Architecture
 
 ```mermaid
@@ -46,6 +48,15 @@ flowchart LR
 ## Security flow
 
 **Scan → Build → Generate evidence → Sign → Verify → Admit → Monitor → Respond**
+
+## Recruiter evidence path
+
+- [Recruiter / Interview Walkthrough](docs/recruiter-walkthrough.md)
+- `.github/` — CI security gates and release automation
+- policy files — admission and policy-as-code controls
+- scanning configuration — source, IaC and container security evidence
+- SBOM/signing/provenance logic — software supply-chain integrity
+- operational guidance — remediation and response expectations
 
 ## Quick start
 
