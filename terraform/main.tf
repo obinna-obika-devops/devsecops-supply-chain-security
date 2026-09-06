@@ -12,6 +12,12 @@ provider "aws" {
   region = var.aws_region
 }
 
+resource "aws_kms_key" "ecr" {
+  description             = "KMS key for secure demo ECR repository"
+  deletion_window_in_days = 7
+  enable_key_rotation     = true
+}
+
 resource "aws_ecr_repository" "secure_demo" {
   name                 = "secure-demo"
   image_tag_mutability = "IMMUTABLE"
@@ -21,7 +27,8 @@ resource "aws_ecr_repository" "secure_demo" {
   }
 
   encryption_configuration {
-    encryption_type = "AES256"
+    encryption_type = "KMS"
+    kms_key         = aws_kms_key.ecr.arn
   }
 }
 
