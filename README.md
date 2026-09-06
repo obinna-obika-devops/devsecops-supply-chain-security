@@ -11,8 +11,6 @@
 
 A practical secure software delivery platform demonstrating defense-in-depth controls across source, dependencies, infrastructure, containers, Kubernetes, artifacts, and releases.
 
-> **Reviewing this for a role?** Start with the [5-minute recruiter/interview walkthrough](docs/recruiter-walkthrough.md) for a fast path through the security engineering evidence.
-
 ## Architecture
 
 ```mermaid
@@ -49,14 +47,13 @@ flowchart LR
 
 **Scan → Build → Generate evidence → Sign → Verify → Admit → Monitor → Respond**
 
-## Recruiter evidence path
+## Engineering controls
 
-- [Recruiter / Interview Walkthrough](docs/recruiter-walkthrough.md)
 - `.github/` — CI security gates and release automation
 - policy files — admission and policy-as-code controls
-- scanning configuration — source, IaC and container security evidence
+- scanning configuration — source, IaC and container security
 - SBOM/signing/provenance logic — software supply-chain integrity
-- operational guidance — remediation and response expectations
+- operational guidance — remediation and incident response
 
 ## Quick start
 
@@ -70,7 +67,7 @@ The local security target intentionally runs tools only when installed; CI uses 
 
 ## Keyless signing
 
-The release workflow contains a real-world GitHub OIDC/Cosign pattern. It is designed to run in GitHub Actions with an OCI registry and does not store long-lived signing keys in the repository. Verification uses the image digest rather than a mutable tag.
+The release workflow uses a GitHub OIDC/Cosign pattern designed to avoid long-lived signing keys in the repository. Verification uses the image digest rather than a mutable tag.
 
 ## Engineering principles
 
@@ -84,7 +81,3 @@ The release workflow contains a real-world GitHub OIDC/Cosign pattern. It is des
 ## Scope
 
 **Status:** portfolio/reference implementation. It does not claim that production infrastructure or a live registry is currently deployed. Secrets and credentials are never committed.
-
-## Recruiter signal
-
-This repository demonstrates how a platform engineer can secure the complete software supply chain while preserving developer self-service.
